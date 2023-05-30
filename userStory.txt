@@ -1,0 +1,9 @@
+MVP:
+
+GIVEN A dashboard is loaded containing a welcome message, weather, inspiring quote, and an area for a user to keep persistent notes. Next to the weather will be a button to change location
+WHEN notes are typed in
+THEN upon reload, notes will remain persistent
+WHEN change location is entered
+THEN the location can be specified by city
+WHEN page is loaded
+THEN a random inspirational quote will be loaded via api
