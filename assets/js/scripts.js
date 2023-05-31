@@ -1,3 +1,5 @@
+$("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
+
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
   // Ideally, the dog photo container can change height to accomodate different aspect ratios
