@@ -1,5 +1,9 @@
 var body = document.body;
-var weatherArray = [];
+var weatherDisplay = document.createElement("section");
+var tempDisplay = document.createElement("p");
+var weatherStatus = document.createElement("p");
+weatherDisplay.setAttribute("style", "color: white");
+
 
 
 // $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
@@ -31,13 +35,14 @@ function weatherFetch() {
       return response.json();
     })
     .then(function (weatherURL) {
-      console.log(weatherURL.main.temp);
-      var tempDisplay = document.createElement("p");
       temperature = weatherURL.main.temp;
-      tempDisplay.setAttribute("style", "color: white");
-      console.log(temperature);
-      tempDisplay.textContent = temperature;
-      body.appendChild(tempDisplay);
+      console.log(weatherURL);
+      console.log(weatherURL.weather[0]);
+      tempDisplay.textContent = "Temperature: " + temperature + " degrees";
+      body.appendChild(weatherDisplay);
+      weatherDisplay.appendChild(tempDisplay);
+      weatherStatus.textContent = "Status: " + weatherURL.weather[0].main;
+      weatherDisplay.appendChild(weatherStatus);
       
 
     });
