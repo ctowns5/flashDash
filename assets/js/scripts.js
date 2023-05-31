@@ -6,7 +6,22 @@ weatherDisplay.setAttribute("style", "color: white");
 
 
 
-// $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
+$("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
+$(".saveBtn").on("click", function () {
+  var text = $(this).siblings(".description").val();
+  var time = $(this).parent().attr("id");
+  localStorage.setItem(time, text);
+});
+
+  $("#note1 .description").val(localStorage.getItem("note1"));
+  $("#note2 .description").val(localStorage.getItem("note2"));
+  $("#note3 .description").val(localStorage.getItem("note3"));
+  $("#note4 .description").val(localStorage.getItem("note4"));
+  $("#note5 .description").val(localStorage.getItem("note5"));
+  $("#note6 .description").val(localStorage.getItem("note6"));
+  $("#note7 .description").val(localStorage.getItem("note7"));
+  $("#note8 .description").val(localStorage.getItem("note8"));
+  $("#note9 .description").val(localStorage.getItem("note9"));
 
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
