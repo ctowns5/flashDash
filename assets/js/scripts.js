@@ -1,3 +1,5 @@
+$("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
+
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
   // Ideally, the dog photo container can change height to accomodate different aspect ratios
@@ -15,3 +17,19 @@ function dogFetchAndDisplay() {
 }
 
 dogFetchAndDisplay();
+
+function weatherFetch() {
+  var weatherURL;
+  var weatherRequestURL = "https://api.openweathermap.org/data/2.5/weather?q=Denver&appid=68415bfdd25c70f3ac38b519e186d986";
+  fetch(weatherRequestURL, weatherURL)
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      weatherURL = data.message;
+      console.log(weatherURL); 
+    });
+}
+
+weatherFetch();
