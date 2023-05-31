@@ -9,7 +9,7 @@ function dogFetchAndDisplay() {
   // Ideally, the dog photo container can change height to accomodate different aspect ratios
   var dogURL;
   var requestURL = "https://dog.ceo/api/breeds/image/random";
-  fetch(requestURL, dogURL)
+  fetch(requestURL)
     .then(function (response) {
       return response.json();
     })
@@ -39,6 +39,7 @@ function weatherFetch() {
       tempDisplay.textContent = temperature;
       body.appendChild(tempDisplay);
       
+
     });
 }
 
