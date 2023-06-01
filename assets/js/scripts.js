@@ -2,9 +2,7 @@ var body = document.body;
 var weatherDisplay = document.createElement("section");
 var tempDisplay = document.createElement("p");
 var weatherStatus = document.createElement("p");
-weatherDisplay.setAttribute("style", "color: white");
-
-
+weatherDisplay.setAttribute("style", "color: black");
 
 $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
 $(".saveBtn").on("click", function () {
@@ -13,15 +11,15 @@ $(".saveBtn").on("click", function () {
   localStorage.setItem(time, text);
 });
 
-  $("#note1 .description").val(localStorage.getItem("note1"));
-  $("#note2 .description").val(localStorage.getItem("note2"));
-  $("#note3 .description").val(localStorage.getItem("note3"));
-  $("#note4 .description").val(localStorage.getItem("note4"));
-  $("#note5 .description").val(localStorage.getItem("note5"));
-  $("#note6 .description").val(localStorage.getItem("note6"));
-  $("#note7 .description").val(localStorage.getItem("note7"));
-  $("#note8 .description").val(localStorage.getItem("note8"));
-  $("#note9 .description").val(localStorage.getItem("note9"));
+$("#note1 .description").val(localStorage.getItem("note1"));
+$("#note2 .description").val(localStorage.getItem("note2"));
+$("#note3 .description").val(localStorage.getItem("note3"));
+$("#note4 .description").val(localStorage.getItem("note4"));
+$("#note5 .description").val(localStorage.getItem("note5"));
+$("#note6 .description").val(localStorage.getItem("note6"));
+$("#note7 .description").val(localStorage.getItem("note7"));
+$("#note8 .description").val(localStorage.getItem("note8"));
+$("#note9 .description").val(localStorage.getItem("note9"));
 
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
@@ -43,7 +41,8 @@ dogFetchAndDisplay();
 
 function weatherFetch() {
   var weatherURL;
-  var weatherRequestURL = "https://api.openweathermap.org/data/2.5/weather?q=Denver&units=imperial&appid=68415bfdd25c70f3ac38b519e186d986";
+  var weatherRequestURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=Denver&units=imperial&appid=68415bfdd25c70f3ac38b519e186d986";
   fetch(weatherRequestURL, weatherURL)
     .then(function (response) {
       console.log(response);
@@ -58,8 +57,6 @@ function weatherFetch() {
       weatherDisplay.appendChild(tempDisplay);
       weatherStatus.textContent = "Status: " + weatherURL.weather[0].main;
       weatherDisplay.appendChild(weatherStatus);
-      
-
     });
 }
 
