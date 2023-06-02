@@ -44,7 +44,12 @@ dogFetchAndDisplay();
 
 function weatherFetch() {
   var weatherURL;
-  var weatherRequestURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + la + "&lon=" + lo + "&units=imperial&appid=68415bfdd25c70f3ac38b519e186d986";
+  var weatherRequestURL =
+    "https://api.openweathermap.org/data/2.5/weather?lat=" +
+    la +
+    "&lon=" +
+    lo +
+    "&units=imperial&appid=68415bfdd25c70f3ac38b519e186d986";
   fetch(weatherRequestURL, weatherURL)
     .then(function (response) {
       console.log(response);
@@ -56,32 +61,39 @@ function weatherFetch() {
       var humid = weatherURL.main.humidity;
       var city = weatherURL.name;
       dayCondition = weatherURL.weather[0].icon;
-      $("#dayCondition").attr("src", "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png");
+      $("#dayCondition").attr(
+        "src",
+        "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png"
+      );
       tempDisplay.textContent = "Temperature: " + temperature + " degrees";
       weatherStatus.textContent = "Status: " + weatherURL.weather[0].main;
-      temp.innerHTML ="Temperature: " + temperature + "°F";
+      temp.innerHTML = "Temperature: " + temperature + "°F";
       wind.innerHTML = "Wind: " + winds + " mph";
       humitidy.innerHTML = "Humidity: " + humid + "%";
       city.innerHTML = city;
       // console.log(weatherURL);
+    });
 }
 
-function geoFetch(ci,st) {
+function geoFetch(ci, st) {
   var geoURL;
-  var geoRequestURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + ci + "," + st + ",US&limit=1&appid=68415bfdd25c70f3ac38b519e186d986";
+  var geoRequestURL =
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    ci +
+    "," +
+    st +
+    ",US&limit=1&appid=68415bfdd25c70f3ac38b519e186d986";
   fetch(geoRequestURL, geoURL)
     .then(function (response) {
       // console.log(response);
       return response.json();
     })
     .then(function (geoURL) {
-
       coord = {
-          lat: geoURL[0].lat,
-          long: geoURL[0].lon,
+        lat: geoURL[0].lat,
+        long: geoURL[0].lon,
       };
       weatherFetch(coord.lat, coord.long);
-
     });
 }
 
@@ -90,12 +102,12 @@ $(".weatherButton").on("click", function () {
   var cityInput = document.querySelector("#cityCode");
   var stateInput = document.querySelector("#stateCode");
 
-      codes.cityCode = cityInput.value.trim();
-      codes.stateCode = stateInput.value.trim();
-      count++;
-      geoFetch(codes.cityCode, codes.stateCode);
-  
+  codes.cityCode = cityInput.value.trim();
+  codes.stateCode = stateInput.value.trim();
+  count++;
+  geoFetch(codes.cityCode, codes.stateCode);
+
   // resets input to blank
-  document.getElementById('cityCode').value = "";
-  document.getElementById('stateCode').value = "";
+  document.getElementById("cityCode").value = "";
+  document.getElementById("stateCode").value = "";
 });
