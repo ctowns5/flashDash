@@ -2,6 +2,9 @@ var body = document.body;
 var weatherDisplay = document.createElement("section");
 var tempDisplay = document.createElement("p");
 var weatherStatus = document.createElement("p");
+var lat;
+var long;
+var dayCondition;
 weatherDisplay.setAttribute("style", "color: black");
 
 $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
@@ -41,23 +44,58 @@ dogFetchAndDisplay();
 
 function weatherFetch() {
   var weatherURL;
-  var weatherRequestURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=Denver&units=imperial&appid=68415bfdd25c70f3ac38b519e186d986";
+  var weatherRequestURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + la + "&lon=" + lo + "&units=imperial&appid=68415bfdd25c70f3ac38b519e186d986";
   fetch(weatherRequestURL, weatherURL)
     .then(function (response) {
       console.log(response);
       return response.json();
     })
     .then(function (weatherURL) {
-      temperature = weatherURL.main.temp;
-      console.log(weatherURL);
-      console.log(weatherURL.weather[0]);
+      var temperature = weatherURL.main.temp;
+      var winds = weatherURL.wind.speed;
+      var humid = weatherURL.main.humidity;
+      var city = weatherURL.name;
+      dayCondition = weatherURL.weather[0].icon;
+      $("#dayCondition").attr("src", "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png");
       tempDisplay.textContent = "Temperature: " + temperature + " degrees";
-      body.appendChild(weatherDisplay);
-      weatherDisplay.appendChild(tempDisplay);
       weatherStatus.textContent = "Status: " + weatherURL.weather[0].main;
-      weatherDisplay.appendChild(weatherStatus);
+      temp.innerHTML ="Temperature: " + temperature + "°F";
+      wind.innerHTML = "Wind: " + winds + " mph";
+      humitidy.innerHTML = "Humidity: " + humid + "%";
+      city.innerHTML = city;
+      // console.log(weatherURL);
+}
+
+function geoFetch(ci,st) {
+  var geoURL;
+  var geoRequestURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + ci + "," + st + ",US&limit=1&appid=68415bfdd25c70f3ac38b519e186d986";
+  fetch(geoRequestURL, geoURL)
+    .then(function (response) {
+      // console.log(response);
+      return response.json();
+    })
+    .then(function (geoURL) {
+
+      coord = {
+          lat: geoURL[0].lat,
+          long: geoURL[0].lon,
+      };
+      weatherFetch(coord.lat, coord.long);
+
     });
 }
 
-weatherFetch();
+// event listener for weather button
+$(".weatherButton").on("click", function () {
+  var cityInput = document.querySelector("#cityCode");
+  var stateInput = document.querySelector("#stateCode");
+
+      codes.cityCode = cityInput.value.trim();
+      codes.stateCode = stateInput.value.trim();
+      count++;
+      geoFetch(codes.cityCode, codes.stateCode);
+  
+  // resets input to blank
+  document.getElementById('cityCode').value = "";
+  document.getElementById('stateCode').value = "";
+});
