@@ -81,6 +81,7 @@ function geoFetch(ci,st) {
           long: geoURL[0].lon,
       };
       weatherFetch(coord.lat, coord.long);
+
     });
 }
 

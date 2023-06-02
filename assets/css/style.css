@@ -1,0 +1,34 @@
+body {
+    background-image: linear-gradient(315deg, #091e7a 0%, #bff0f0 100%);
+}
+
+
+#date44 {
+  color: rgb(206, 194, 178);
+  text-align: center;
+}
+.note {
+  background-color: #ffffff;
+  color: #000000;
+  border-top: 1px dashed #000000;
+}
+.saveBtn {
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #06aed5;
+  color: white;
+}
+.saveBtn i:hover {
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.description {
+  white-space: pre-wrap;
+}
+.time-block {
+  border-radius: 15px;
+}
+.row {
+  border-top: 1px solid white;
+}
