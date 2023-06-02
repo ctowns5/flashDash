@@ -30,78 +30,47 @@
   <body>
     <header>
       <h1 class="text-center display-1">FlashDash</h1>
+      <h2>
+        <p id="currentDay" class="lead"></p>
+      </h2>
     </header>
     <div class="container d-flex">
       <div class="col">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="p-3">
-              <div class="card">
-                <div class="card-header text-center">Daily Notes</div>
-                <ul class="list-group list-group-flush" id="notes">
-                  <li class="list-group-item"id="note1" class="row time-block">
-                    <div class="col-md-1 note"></div>
-                    <textarea class="col-md-10 description"> </textarea>
-                    <button class="btn saveBtn col-md-1">
-                    <i class="fas fa-save"></i>
-                    </button></li>
-                  <li class="list-group-item"id="note2" class="row time-block">
-                    <div class="col-md-1 note"></div>
-                    <textarea class="col-md-10 description"> </textarea>
-                    <button class="btn saveBtn col-md-1">
-                    <i class="fas fa-save"></i>
-                    </button></li>
-                  <li class="list-group-item"id="note3" class="row time-block">
-                    <div class="col-md-1 note"></div>
-                    <textarea class="col-md-10 description"> </textarea>
-                    <button class="btn saveBtn col-md-1">
-                    <i class="fas fa-save"></i>
-                    </button></li>
-                  <li class="list-group-item"id="note4" class="row time-block">
-                    <div class="col-md-1 note"></div>
-                    <textarea class="col-md-10 description"> </textarea>
-                    <button class="btn saveBtn col-md-1">
-                    <i class="fas fa-save"></i>
-                    </button></li>
-                  <li class="list-group-item"id="note5" class="row time-block">
-                    <div class="col-md-1 note"></div>
-                    <textarea class="col-md-10 description"> </textarea>
-                    <button class="btn saveBtn col-md-1">
-                    <i class="fas fa-save"></i>
-                    </button></li>  
-                  </ul>
+          <div class="col">
+            <ul class="list-group">
+              <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+              <li class="list-group-item">A fourth item</li>
+              <li class="list-group-item">And a fifth one</li>
+            </ul>
+        </div>
+        <div class="col">
+          <div class="row border">
+            <img class="" id="dash-dog-photo" alt="This is a dog photo" />
+          </div>
+          <div class="row my-5">
+            <h2 class="text-center" id="weather-place">Placeholderville</h2>
+            <img class="border" src="./assets/cloud_360.png" alt="placeholder" />
+            <div class="row">
+            <h3 class="text-center" id="current-conditions">Curr conditions</h3>
+            <div class="row">
+              <div class="col">
+                <p class="text-center">Temperature: <span id="current-temp">num</span>°F</p>
               </div>
-            <!-- <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Daily Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table> -->
+              <div class="col">
+                <p class="text-center">humidity: <span id="current-humidity">num</span>%</p>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="col border display-block">
         <div class="row border">
-          <img class="col-lg-4" id="dash-dog-photo" alt="This is a dog photo" />
         </div>
         <div class="row border">
-          <img src="./assets/cloud_360.png" alt="placeholder" />
         </div>
       </div>
     </div>

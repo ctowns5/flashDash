@@ -27,3 +27,9 @@
 .row {
   border-top: 1px solid white;
 }
+
+#dash-dog-photo {
+  max-width: auto;
+  object-fit: contain;
+  max-height: 400px;
+}
