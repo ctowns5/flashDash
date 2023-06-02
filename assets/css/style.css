@@ -41,6 +41,16 @@ body {
 #dash-dog-photo:hover {
   cursor: pointer;
 }
+
+textarea {
+  /* background: transparent; */
+  border: none;
+  resize: none;
+  color: #000000;
+  border-left: 1px solid black;
+  /* padding: 10px; */
+  white-space: pre-wrap;
+  
 .list-group {
   margin-top: 45px;
 }

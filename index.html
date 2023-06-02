@@ -35,55 +35,60 @@
         <p id="currentDay" class="lead text-center"></p>
       </h2>
     </header>
-    <div class="col">
-      <div class="row">
-        <div class="col">
+    <div class="mx-5 row">
+      <div class="col">
+        <div class="row">
           <ul class="list-group">
-            <li class="list-group-item">An item</li>
+            <li class="list-group-item">
+              <textarea
+                placeholder="Click to add note"
+                class="w-100"
+                name="note-entry"
+                rows="2"
+              ></textarea>
+            </li>
             <li class="list-group-item">A second item</li>
             <li class="list-group-item">A third item</li>
             <li class="list-group-item">A fourth item</li>
             <li class="list-group-item">And a fifth one</li>
           </ul>
         </div>
-        <div class="col">
-          <div class="row">
-            <div class="text-center">
-              <img
-                onclick="dogFetchAndDisplay()"
-                id="dash-dog-photo"
-                alt="This is a dog photo"
-              />
-            </div>
-          </div>
-          <div class="row my-5">
-            <h2 class="text-center" id="weather-place">Placeholderville</h2>
+        <div class="row">
+          <!-- NEWS API OR OTHER FUN THING GOES IN HERE -->
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="text-center">
             <img
-              class="rounded"
-              src="./assets/cloud_360.png"
-              alt="placeholder"
+              onclick="dogFetchAndDisplay()"
+              id="dash-dog-photo"
+              alt="This is a dog photo"
             />
+          </div>
+        </div>
+        <div class="row my-5">
+          <h2 class="text-center" id="weather-place">Placeholderville</h2>
+          <img class="rounded" src="./assets/cloud_360.png" alt="placeholder" />
+          <div class="row">
+            <h3 class="text-center" id="current-conditions">Curr conditions</h3>
             <div class="row">
-              <h3 class="text-center" id="current-conditions">
-                Curr conditions
-              </h3>
-              <div class="row">
-                <div class="col">
-                  <p class="text-center">
-                    Temperature: <span id="current-temp">num</span>°F
-                  </p>
-                </div>
-                <div class="col">
-                  <p class="text-center">
-                    humidity: <span id="current-humidity">num</span>%
-                  </p>
-                </div>
+              <div class="col">
+                <p class="text-center">
+                  Temperature: <span id="current-temp">num</span>°F
+                </p>
+              </div>
+              <div class="col">
+                <p class="text-center">
+                  humidity: <span id="current-humidity">num</span>%
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <script
       src="https://code.jquery.com/jquery-3.7.0.min.js"
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
