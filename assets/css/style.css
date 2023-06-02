@@ -8,7 +8,7 @@ body {
 .note {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  /* border-top: 1px dashed #000000; */
 }
 .saveBtn {
   border-left: 1px solid black;
@@ -28,7 +28,7 @@ body {
   border-radius: 15px;
 }
 .row {
-  border-top: 1px solid white;
+  /* border-top: 1px solid white; */
 }
 #dash-dog-photo {
   max-width: auto;
@@ -47,10 +47,10 @@ textarea {
   border: none;
   resize: none;
   color: #000000;
-  border-left: 1px solid black;
+  /* border-left: 1px solid black; */
   /* padding: 10px; */
   white-space: pre-wrap;
-  
+
 .list-group {
   margin-top: 45px;
 }
