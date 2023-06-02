@@ -1,3 +1,11 @@
+* {
+
+}
+body {
+    background-image: linear-gradient(315deg, #091e7a 0%, #bff0f0 100%);
+}
+
+
 #date44 {
     color: rgb(206, 194, 178);
     text-align: center;
