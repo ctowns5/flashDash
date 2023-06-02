@@ -1,125 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlashDash</title>
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/css/blog.css" rel="stylesheet" />
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
     crossorigin="anonymous"
-  />
-  <link
+    />
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"
+    ></script>
+    <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous"
-  />
-  <link
+    />
+    <link
     href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
     rel="stylesheet"/>
-  <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <header class="border-bottom lh-1 py-3">
-        <div class="row flex-nowrap justify-content-end align-items-center">
-          <div class="col-4 text-center">
-            <h1 class="display-1"
-              class="text-body-emphasis text-decoration-none"
-              href="#"
-              >FlashDash</h1
-            >
-            <h2>
-              <p id="currentDay" class="lead"></p>
-            </h2>
-          </div>
-        </div>
-      </header>
-    <main class="container">
-      <div class="col mb-2">
-        <div class="col-md-6 col-lg-3">
-          <div
-            class="col g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col p-4 d-flex flex-column position-static">
-              <p class="card-text mb-auto">
-                <div class="d-flex container p-3">
-                  <div class="card">
-                    <div class="card-header text-center">Daily Notes</div>
-                    <ul class="list-group list-group-flush" id="notes">
-                      <li class="list-group-item"id="note1" class="row time-block">
-                        <div class="col-md-1 note"></div>
-                        <textarea class="col-md-10 description"> </textarea>
-                        <button class="btn saveBtn col-md-1">
-                        <i class="fas fa-save"></i>
-                        </button></li>
-                      <li class="list-group-item"id="note2" class="row time-block">
-                        <div class="col-md-1 note"></div>
-                        <textarea class="col-md-10 description"> </textarea>
-                        <button class="btn saveBtn col-md-1">
-                        <i class="fas fa-save"></i>
-                        </button></li>
-                      <li class="list-group-item"id="note3" class="row time-block">
-                        <div class="col-md-1 note"></div>
-                        <textarea class="col-md-10 description"> </textarea>
-                        <button class="btn saveBtn col-md-1">
-                        <i class="fas fa-save"></i>
-                        </button></li>
-                      <li class="list-group-item"id="note4" class="row time-block">
-                        <div class="col-md-1 note"></div>
-                        <textarea class="col-md-10 description"> </textarea>
-                        <button class="btn saveBtn col-md-1">
-                        <i class="fas fa-save"></i>
-                        </button></li>
-                      <li class="list-group-item"id="note5" class="row time-block">
-                        <div class="col-md-1 note"></div>
-                        <textarea class="col-md-10 description"> </textarea>
-                        <button class="btn saveBtn col-md-1">
-                        <i class="fas fa-save"></i>
-                        </button></li>  
-                      </ul>
-                  </div>
-                </div>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="col col-md-12">
-          <div
-            class="g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-            >
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-0">Weather</h3>
-              <p class="mb-auto">
-              </p>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="col g-5">
-          <div class="col-md-6">
-            <div class="position-sticky" style="top: 2rem">
-              <div class="p-4 mb-3 bg-body-tertiary rounded">
-              <h4 class="fst-italic">Good ol' Dogs</h4>
-              <img
-              class="col-lg-9"
-              id="dash-dog-photo"
-              alt="This is a dog photo"
-              />
+    <header>
+      <h1 class="text-center display-1">FlashDash</h1>
+    </header>
+    <div class="container d-flex">
+      <div class="col">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="p-3">
+              <div class="card">
+                <div class="card-header text-center">Daily Notes</div>
+                <ul class="list-group list-group-flush" id="notes">
+                  <li class="list-group-item"id="note1" class="row time-block">
+                    <div class="col-md-1 note"></div>
+                    <textarea class="col-md-10 description"> </textarea>
+                    <button class="btn saveBtn col-md-1">
+                    <i class="fas fa-save"></i>
+                    </button></li>
+                  <li class="list-group-item"id="note2" class="row time-block">
+                    <div class="col-md-1 note"></div>
+                    <textarea class="col-md-10 description"> </textarea>
+                    <button class="btn saveBtn col-md-1">
+                    <i class="fas fa-save"></i>
+                    </button></li>
+                  <li class="list-group-item"id="note3" class="row time-block">
+                    <div class="col-md-1 note"></div>
+                    <textarea class="col-md-10 description"> </textarea>
+                    <button class="btn saveBtn col-md-1">
+                    <i class="fas fa-save"></i>
+                    </button></li>
+                  <li class="list-group-item"id="note4" class="row time-block">
+                    <div class="col-md-1 note"></div>
+                    <textarea class="col-md-10 description"> </textarea>
+                    <button class="btn saveBtn col-md-1">
+                    <i class="fas fa-save"></i>
+                    </button></li>
+                  <li class="list-group-item"id="note5" class="row time-block">
+                    <div class="col-md-1 note"></div>
+                    <textarea class="col-md-10 description"> </textarea>
+                    <button class="btn saveBtn col-md-1">
+                    <i class="fas fa-save"></i>
+                    </button></li>  
+                  </ul>
               </div>
-            </div>
+            <!-- <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Daily Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table> -->
           </div>
         </div>
       </div>
-      <script
+      <div class="col border display-block">
+        <div class="row border">
+          <img class="col-lg-4" id="dash-dog-photo" alt="This is a dog photo" />
+        </div>
+        <div class="row border">
+          <img src="./assets/cloud_360.png" alt="placeholder" />
+        </div>
+      </div>
+    </div>
+    <script
       src="https://code.jquery.com/jquery-3.7.0.min.js"
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
       crossorigin="anonymous"
@@ -130,6 +116,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/js/scripts.js"></script>
-    </main>
   </body>
 </html>
