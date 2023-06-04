@@ -111,3 +111,40 @@ $(".weatherButton").on("click", function () {
   document.getElementById("cityCode").value = "";
   document.getElementById("stateCode").value = "";
 });
+
+function getAndSaveNotes() {
+  //will use "each" function to build an array to save into local storage.
+  //array will be filled with text contents of each extant note box
+  console.log("get and save notes now");
+}
+
+function initializeNotes() {
+  //This is to be run when the page is loaded. It loads notes from local storage then appends the empty "add note" at the end
+}
+
+//event listener for "X" button by notes
+$(".close-note-button").on("click", function (event) {
+  console.log("Clicked close button on note");
+  $(event.target).parent().remove();
+  getAndSaveNotes(); //Save that you deleted a note into local storage
+});
+
+$("textarea").on("focusout", function (event) {
+  console.log("took focus off of note");
+  /* if (note text == ""){
+    delete note
+  }
+  else{
+    getAndSaveNotes
+  }
+  */
+});
+
+$("textarea").on("focusin", function (event) {
+  console.log("put focus on note");
+  /* if(noteIsEmpty){
+    set noteIsEmpty attribute to "false";
+    Append new blank note element
+    append 'x' button to selected note element
+  } */
+});
