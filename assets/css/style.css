@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(360deg, darkslategrey 0%, #033f63 100%);
+  background-image: linear-gradient(to top, darkslategrey, #033f63);
   color: #e3f2fd;
 }
 #date44 {
@@ -58,8 +58,8 @@ textarea {
   margin-top: 45px;
 }
 #weatherIcon {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;

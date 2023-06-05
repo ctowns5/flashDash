@@ -11,16 +11,6 @@ weatherDisplay.setAttribute("style", "color: black");
 
 $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
 
-$("#note1 .description").val(localStorage.getItem("note1"));
-$("#note2 .description").val(localStorage.getItem("note2"));
-$("#note3 .description").val(localStorage.getItem("note3"));
-$("#note4 .description").val(localStorage.getItem("note4"));
-$("#note5 .description").val(localStorage.getItem("note5"));
-$("#note6 .description").val(localStorage.getItem("note6"));
-$("#note7 .description").val(localStorage.getItem("note7"));
-$("#note8 .description").val(localStorage.getItem("note8"));
-$("#note9 .description").val(localStorage.getItem("note9"));
-
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
   // Ideally, the dog photo container can change height to accomodate different aspect ratios
@@ -72,7 +62,7 @@ function weatherFetch(la, lo) {
       weatherPlace.innerHTML = city;
       $("#weatherIcon").attr(
         "src",
-        "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png"
+        "https://openweathermap.org/img/wn/" + dayCondition + "@4x.png"
       );
       console.log(weatherURL);
     });
