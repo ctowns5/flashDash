@@ -39,6 +39,6 @@ Will Brown: https://github.com/willis291
 
 ### APIs
 
-https://newsdata.io/
-https://dog.ceo/dog-api/
-https://openweathermap.org/api
+- https://newsdata.io/
+- https://dog.ceo/dog-api/
+- https://openweathermap.org/api
