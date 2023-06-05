@@ -1,6 +1,7 @@
 body {
   background-image: linear-gradient(to top, darkslategrey, #033f63);
   color: #e3f2fd;
+  font-family: "Amaranth", sans-serif;
 }
 #date44 {
   color: rgb(206, 194, 178);
