@@ -225,7 +225,7 @@ $(document).on("focusin", ".user-note-area", function (event) {
 });
 
 function getnews() {
-  var newsURL = (`https://newsdata.io/api/1/news?apikey=${newsAPI}&country=us&language=en`)
+  var newsURL = (`https://newsdata.io/api/1/news?apikey=${newsAPI}&country=us&language=en&category=top,sports`)
   fetch(newsURL)
       .then(news => news.json())
     .then((response) => {
