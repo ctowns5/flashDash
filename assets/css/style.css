@@ -1,6 +1,11 @@
+html {
+  height: 100%;
+}
 body {
   background-image: linear-gradient(to top, darkslategrey, #033f63);
   color: #e3f2fd;
+  height: 100%;
+  background-image: no-repeat;
   font-family: "Amaranth", sans-serif;
 }
 #date44 {

@@ -62,7 +62,7 @@ function weatherFetch(la, lo) {
       weatherPlace.innerHTML = city;
       $("#weatherIcon").attr(
         "src",
-        "https://openweathermap.org/img/wn/" + dayCondition + "@4x.png"
+        "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png"
       );
       console.log(weatherURL);
     });
