@@ -5,6 +5,8 @@ var weatherStatus = document.createElement("p");
 var lat;
 var long;
 var dayCondition;
+//news API only works 100 times per day
+var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6";
 weatherDisplay.setAttribute("style", "color: black");
 
 $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
@@ -221,3 +223,26 @@ $(document).on("focusin", ".user-note-area", function (event) {
     $("#note-list").append(noteListItem);
   }
 });
+
+function getnews() {
+  var newsURL = (`https://newsdata.io/api/1/news?apikey=${newsAPI}&country=us&language=en`)
+  fetch(newsURL)
+      .then(news => news.json())
+    .then((response) => {
+      for (var i=0; i<response.totalResults; i++) {
+        document.getElementById("newsdiv").innerHTML +=
+          "<div><h1>" +
+          response.results[i].title +
+          "</h1>" +
+          response.results[i].source_id +
+          "<br>" +
+          response.results[i].description +
+          " <a href='" +
+          response.results[i].link +
+          "' target='_blank'>" +
+          response.results[i].link +
+          "</a></div>";
+      }
+      });
+      }
+getnews();
