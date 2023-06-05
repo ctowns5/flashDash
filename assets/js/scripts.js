@@ -45,7 +45,7 @@ function dogFetchAndDisplay() {
 dogFetchAndDisplay();
 initializeNotes();
 
-function weatherFetch(la,lo) {
+function weatherFetch(la, lo) {
   var weatherURL;
   var weatherRequestURL =
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
@@ -75,7 +75,10 @@ function weatherFetch(la,lo) {
       currentConditions.innerHTML = condition;
       currentHumidity.innerHTML = "Humidity: " + humid + "%";
       weatherPlace.innerHTML = city;
-      $("#weatherIcon").attr("src", "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png");
+      $("#weatherIcon").attr(
+        "src",
+        "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png"
+      );
       console.log(weatherURL);
     });
 }
@@ -102,13 +105,11 @@ function geoFetch(ci, st) {
     });
 }
 
-
-
 // event listener for weather button
 $("#weatherButton").on("click", function () {
   var cityInput = document.querySelector("#cityCode");
   var stateInput = document.querySelector("#stateCode");
-  var codes = {}
+  var codes = {};
 
   codes.cityCode = cityInput.value.trim();
   codes.stateCode = stateInput.value.trim();
@@ -117,7 +118,7 @@ $("#weatherButton").on("click", function () {
   // resets input to blank
   document.getElementById("cityCode").value = "";
   document.getElementById("stateCode").value = "";
-  $('#myModal').modal('toggle');
+  $("#myModal").modal("toggle");
 });
 
 function getAndSaveNotes() {
@@ -225,11 +226,11 @@ $(document).on("focusin", ".user-note-area", function (event) {
 });
 
 function getnews() {
-  var newsURL = (`https://newsdata.io/api/1/news?apikey=${newsAPI}&country=us&language=en&category=top,sports`)
+  var newsURL = `https://newsdata.io/api/1/news?apikey=${newsAPI}&country=us&language=en&category=top,sports`;
   fetch(newsURL)
-      .then(news => news.json())
+    .then((news) => news.json())
     .then((response) => {
-      for (i=0; i<5; i++) {
+      for (i = 0; i < 5; i++) {
         document.getElementById("newsdiv").innerHTML +=
           "<div><h1>" +
           response.results[i].title +
@@ -241,8 +242,8 @@ function getnews() {
           response.results[i].link +
           "' target='_blank'>" +
           response.results[i].link +
-          "</a></div>";
+          "</a></div><hr>";
       }
-      });
-      }
+    });
+}
 getnews();
