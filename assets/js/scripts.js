@@ -229,7 +229,7 @@ function getnews() {
   fetch(newsURL)
       .then(news => news.json())
     .then((response) => {
-      for (var i=0; i<response.totalResults; i++) {
+      for (i=0; i<5; i++) {
         document.getElementById("newsdiv").innerHTML +=
           "<div><h1>" +
           response.results[i].title +
