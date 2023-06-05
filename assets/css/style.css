@@ -60,7 +60,9 @@ textarea {
 #weatherIcon {
   width: 400px;
   height: 400px;
-  margin-left: 255px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 a {
   text-decoration: underline;
