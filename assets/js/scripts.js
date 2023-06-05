@@ -118,69 +118,88 @@ $(".weatherButton").on("click", function () {
 function getAndSaveNotes() {
   //will use "each" function to build an array to save into local storage.
   //array will be filled with text contents of each extant note box
-  console.log("get and save notes now");
+  var notesArray = [];
+  //The "i" in the function below is simply the index of the loop created in the "each" function
+  // console.log($(".user-note-area"));
+  $(".user-note-area").each(function (i) {
+    // console.log("looping");
+    // console.log(this);
+    notesArray[i] = $(this).val();
+  });
+  localStorage.setItem("savedNotes", JSON.stringify(notesArray));
 }
 
 function initializeNotes() {
   //This is to be run when the page is loaded. It loads notes from local storage then appends the empty "add note" at the end
   //First it checks if saved notes exist, then, if so, it loads them in, followed by the blank note used for creating new ones
+  var noteListItem = $("<li>", {
+    class: "list-group-item d-flex",
+  });
+  var formattedTextArea = $("<textarea>", {
+    class: "w-100 user-note-area",
+    placeholder: "click to add notes",
+  });
+  var closeButton = $("<button>", {
+    type: "button",
+    class: "btn-close close-note-button",
+    "aria-label": "Close",
+  });
+
   if (localStorage.getItem("savedNotes") == null) {
-    //placeholder loop right here -------------------------------------------------------------
-    for (i = 0; i < 5; i++) {
-      var noteListItem = $("<li>", {
+    formattedTextArea.data("noteFilled", "false");
+    noteListItem.append(formattedTextArea);
+    $("#note-list").append(noteListItem); //completed blank note added to page
+  } else {
+    var notesArray = JSON.parse(localStorage.getItem("savedNotes"));
+    for (i = 0; i < notesArray.length; i++) {
+      //have to empty out the element variables again
+      noteListItem = $("<li>", {
         class: "list-group-item d-flex",
       });
-      var formattedTextArea = $("<textarea>", {
+      formattedTextArea = $("<textarea>", {
         class: "w-100 user-note-area",
         placeholder: "click to add notes",
       });
-      formattedTextArea.data("noteFilled", "true");
-      var closeButton = $("<button>", {
+      closeButton = $("<button>", {
         type: "button",
         class: "btn-close close-note-button",
         "aria-label": "Close",
       });
-      formattedTextArea.text("placeholder text #" + i); //This is where the data from the array of saved notes stuff is going to go
+
       noteListItem.append(formattedTextArea);
-      noteListItem.append(closeButton);
+      if (notesArray[i] !== "") {
+        formattedTextArea.data("noteFilled", "true");
+        formattedTextArea.text(notesArray[i]);
+        noteListItem.append(closeButton);
+      } else {
+        formattedTextArea.data("noteFilled", "false");
+      }
+      console.log(noteListItem);
       $("#note-list").append(noteListItem);
     }
   }
-  noteListItem = $("<li>", {
-    class: "list-group-item d-flex",
-  });
-  formattedTextArea = $("<textarea>", {
-    class: "w-100 user-note-area",
-    placeholder: "click to add notes",
-  });
-  formattedTextArea.data("noteFilled", "false");
-  noteListItem.append(formattedTextArea);
-  $("#note-list").append(noteListItem);
 }
 
 //event listener for "X" button by notes
-$(".close-note-button").on("click", function (event) {
-  console.log("Clicked close button on note");
+$(document).on("click", ".close-note-button", function (event) {
   $(event.target).parent().remove();
   getAndSaveNotes(); //Save that you deleted a note into local storage
 });
 
-$("textarea").on("focusout", function (event) {
-  console.log("took focus off of note");
-  /* if (note text == ""){
-    delete note
+//This function saves the notes to local data when the user clicks away from the notes boxes
+$(document).on("focusout", ".user-note-area", function (event) {
+  if ($(event.target).val() == "") {
+    $(event.target).parent().remove(); //This gets rid of a note if the user didn't fill it after they last clicked on it
+  } else {
+    $(event.target).data("noteFilled", "true"); //The note has now been marked as filled, clicking on it will not generate a new blank note
+    getAndSaveNotes();
   }
-  else{
-    getAndSaveNotes
-  }
-  */
 });
 
-$("textarea").on("focusin", function (event) {
-  console.log("put focus on note");
-  console.log($(event.target).data("noteFilled"));
+//The listener for the focus event. Needed to use event delegation to add the event to dynamically generated elements
+//This function activates when the text cursor is placed in a note text box. If it's a blank box, it generates a new blank box and allows the user to enter data
+$(document).on("focusin", ".user-note-area", function (event) {
   if ($(event.target).data("noteFilled") == "false") {
-    // console.log("entered conditional");
     var closeButton = $("<button>", {
       type: "button",
       class: "btn-close close-note-button",
@@ -194,16 +213,10 @@ $("textarea").on("focusin", function (event) {
       placeholder: "click to add notes",
     });
     $(event.target).parent().append(closeButton);
-    $(event.target).data("noteFilled", "true"); //This will need to be moved into a conditional within the "focusout" area
-    formattedTextArea.data("noteFilled", "false"); //This creates the new empty note element
+    formattedTextArea.data("noteFilled", "false"); //This creates the new empty note element, with data attribute showing that it is yet to be used
     noteListItem.append(formattedTextArea);
-    $(event.target).parent().parent().append(noteListItem);
+    $("#note-list").append(noteListItem);
   }
-  /* if(noteIsEmpty){
-    set noteIsEmpty attribute to "false";
-    Append new blank note element
-    append 'x' button to selected note element
-  } */
 });
 
 function getnews() {
