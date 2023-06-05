@@ -10,7 +10,7 @@ var dayCondition;
 var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6";
 weatherDisplay.setAttribute("style", "color: black");
 
-$("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
+$("#currentDay").text(dayjs().format("MMMM D[,] YYYY"));
 
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
