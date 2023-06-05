@@ -45,7 +45,7 @@ function dogFetchAndDisplay() {
 dogFetchAndDisplay();
 initializeNotes();
 
-function weatherFetch() {
+function weatherFetch(la,lo) {
   var weatherURL;
   var weatherRequestURL =
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
@@ -63,6 +63,7 @@ function weatherFetch() {
       var winds = weatherURL.wind.speed;
       var humid = weatherURL.main.humidity;
       var city = weatherURL.name;
+      var condition = weatherURL.weather[0].description;
       dayCondition = weatherURL.weather[0].icon;
       $("#dayCondition").attr(
         "src",
@@ -70,11 +71,12 @@ function weatherFetch() {
       );
       tempDisplay.textContent = "Temperature: " + temperature + " degrees";
       weatherStatus.textContent = "Status: " + weatherURL.weather[0].main;
-      temp.innerHTML = "Temperature: " + temperature + "°F";
-      wind.innerHTML = "Wind: " + winds + " mph";
-      humitidy.innerHTML = "Humidity: " + humid + "%";
-      city.innerHTML = city;
-      // console.log(weatherURL);
+      currentTemp.innerHTML = "Temperature: " + temperature + "°F";
+      currentConditions.innerHTML = condition;
+      currentHumidity.innerHTML = "Humidity: " + humid + "%";
+      weatherPlace.innerHTML = city;
+      $("#weatherIcon").attr("src", "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png");
+      console.log(weatherURL);
     });
 }
 
@@ -100,19 +102,22 @@ function geoFetch(ci, st) {
     });
 }
 
+
+
 // event listener for weather button
-$(".weatherButton").on("click", function () {
+$("#weatherButton").on("click", function () {
   var cityInput = document.querySelector("#cityCode");
   var stateInput = document.querySelector("#stateCode");
+  var codes = {}
 
   codes.cityCode = cityInput.value.trim();
   codes.stateCode = stateInput.value.trim();
-  count++;
   geoFetch(codes.cityCode, codes.stateCode);
 
   // resets input to blank
   document.getElementById("cityCode").value = "";
   document.getElementById("stateCode").value = "";
+  $('#myModal').modal('toggle');
 });
 
 function getAndSaveNotes() {
