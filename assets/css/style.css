@@ -1,5 +1,12 @@
+html {
+  height: 100%;
+}
 body {
-  background-image: linear-gradient(315deg, #222823 0%, #a7a2a9 25%);
+  background-image: linear-gradient(to top, darkslategrey, #033f63);
+  color: #e3f2fd;
+  height: 100%;
+  background-image: no-repeat;
+  font-family: "Amaranth", sans-serif;
 }
 #date44 {
   color: rgb(206, 194, 178);
@@ -8,27 +15,15 @@ body {
 .note {
   background-color: #ffffff;
   color: #000000;
-  /* border-top: 1px dashed #000000; */
 }
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
-}
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all 0.3s ease-in-out;
+#newsdiv {
+  margin-top: 45px;
 }
 .description {
   white-space: pre-wrap;
 }
 .time-block {
   border-radius: 15px;
-}
-.row {
-  /* border-top: 1px solid white; */
 }
 #dash-dog-photo {
   max-width: auto;
@@ -37,17 +32,24 @@ body {
   border-radius: 5px;
   border-collapse: separate;
   margin-top: 45px;
+  border: solid whitesmoke 8px;
 }
 #dash-dog-photo:hover {
   cursor: pointer;
 }
 #newsdiv h1 {
-font-size: larger;
+  font-size: larger;
+  color: whitesmoke;
+  font-weight: bolder;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
 }
 #newsdiv {
-  border: solid black;
+  border: solid whitesmoke;
   border-radius: 8px;
   font-size: small;
+  padding: 20px;
 }
 textarea {
   /* background: transparent; */
@@ -60,4 +62,16 @@ textarea {
 }
 .list-group {
   margin-top: 45px;
+}
+#weatherIcon {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: rgb(206, 194, 178);
 }

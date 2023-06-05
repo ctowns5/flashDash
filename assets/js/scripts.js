@@ -11,21 +11,6 @@ var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6";
 weatherDisplay.setAttribute("style", "color: black");
 
 $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
-$(".saveBtn").on("click", function () {
-  var text = $(this).siblings(".description").val();
-  var time = $(this).parent().attr("id");
-  localStorage.setItem(time, text);
-});
-
-$("#note1 .description").val(localStorage.getItem("note1"));
-$("#note2 .description").val(localStorage.getItem("note2"));
-$("#note3 .description").val(localStorage.getItem("note3"));
-$("#note4 .description").val(localStorage.getItem("note4"));
-$("#note5 .description").val(localStorage.getItem("note5"));
-$("#note6 .description").val(localStorage.getItem("note6"));
-$("#note7 .description").val(localStorage.getItem("note7"));
-$("#note8 .description").val(localStorage.getItem("note8"));
-$("#note9 .description").val(localStorage.getItem("note9"));
 
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
@@ -46,7 +31,7 @@ function dogFetchAndDisplay() {
 dogFetchAndDisplay();
 initializeNotes();
 
-function weatherFetch(la,lo) {
+function weatherFetch(la, lo) {
   var weatherURL;
   var weatherRequestURL =
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
@@ -76,7 +61,10 @@ function weatherFetch(la,lo) {
       currentConditions.innerHTML = condition;
       currentHumidity.innerHTML = "Humidity: " + humid + "%";
       weatherPlace.innerHTML = city;
-      $("#weatherIcon").attr("src", "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png");
+      $("#weatherIcon").attr(
+        "src",
+        "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png"
+      );
       console.log(weatherURL);
     });
 }
@@ -113,7 +101,7 @@ if (codeRetrieve == null) {
 $("#weatherButton").on("click", function () {
   var cityInput = document.querySelector("#cityCode");
   var stateInput = document.querySelector("#stateCode");
-  var codes = {}
+  var codes = {};
 
   codes.cityCode = cityInput.value.trim();
   codes.stateCode = stateInput.value.trim();
@@ -124,7 +112,7 @@ $("#weatherButton").on("click", function () {
   // resets input to blank
   document.getElementById("cityCode").value = "";
   document.getElementById("stateCode").value = "";
-  $('#myModal').modal('toggle');
+  $("#myModal").modal("toggle");
 });
 
 function getAndSaveNotes() {
@@ -232,11 +220,11 @@ $(document).on("focusin", ".user-note-area", function (event) {
 });
 
 function getnews() {
-  var newsURL = (`https://newsdata.io/api/1/news?apikey=${newsAPI}&country=us&language=en`)
+  var newsURL = `https://newsdata.io/api/1/news?apikey=${newsAPI}&country=us&language=en&category=top,sports`;
   fetch(newsURL)
-      .then(news => news.json())
+    .then((news) => news.json())
     .then((response) => {
-      for (var i=0; i<response.totalResults; i++) {
+      for (i = 0; i < 5; i++) {
         document.getElementById("newsdiv").innerHTML +=
           "<div><h1>" +
           response.results[i].title +
@@ -248,8 +236,8 @@ function getnews() {
           response.results[i].link +
           "' target='_blank'>" +
           response.results[i].link +
-          "</a></div>";
+          "</a></div><hr>";
       }
-      });
-      }
+    });
+}
 getnews();
