@@ -41,7 +41,14 @@ body {
 #dash-dog-photo:hover {
   cursor: pointer;
 }
-
+#newsdiv h1 {
+font-size: larger;
+}
+#newsdiv {
+  border: solid black;
+  border-radius: 8px;
+  font-size: small;
+}
 textarea {
   /* background: transparent; */
   border: none;
@@ -50,7 +57,7 @@ textarea {
   /* border-left: 1px solid black; */
   /* padding: 10px; */
   white-space: pre-wrap;
-
+}
 .list-group {
   margin-top: 45px;
 }
