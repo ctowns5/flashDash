@@ -41,6 +41,7 @@ function dogFetchAndDisplay() {
 }
 
 dogFetchAndDisplay();
+initializeNotes();
 
 function weatherFetch() {
   var weatherURL;
@@ -120,6 +121,39 @@ function getAndSaveNotes() {
 
 function initializeNotes() {
   //This is to be run when the page is loaded. It loads notes from local storage then appends the empty "add note" at the end
+  //First it checks if saved notes exist, then, if so, it loads them in, followed by the blank note used for creating new ones
+  if (localStorage.getItem("savedNotes") == null) {
+    //placeholder loop right here -------------------------------------------------------------
+    for (i = 0; i < 5; i++) {
+      var noteListItem = $("<li>", {
+        class: "list-group-item d-flex",
+      });
+      var formattedTextArea = $("<textarea>", {
+        class: "w-100 user-note-area",
+        placeholder: "click to add notes",
+      });
+      formattedTextArea.data("noteFilled", "true");
+      var closeButton = $("<button>", {
+        type: "button",
+        class: "btn-close close-note-button",
+        "aria-label": "Close",
+      });
+      formattedTextArea.text("placeholder text #" + i); //This is where the data from the array of saved notes stuff is going to go
+      noteListItem.append(formattedTextArea);
+      noteListItem.append(closeButton);
+      $("#note-list").append(noteListItem);
+    }
+  }
+  noteListItem = $("<li>", {
+    class: "list-group-item d-flex",
+  });
+  formattedTextArea = $("<textarea>", {
+    class: "w-100 user-note-area",
+    placeholder: "click to add notes",
+  });
+  formattedTextArea.data("noteFilled", "false");
+  noteListItem.append(formattedTextArea);
+  $("#note-list").append(noteListItem);
 }
 
 //event listener for "X" button by notes
@@ -142,6 +176,27 @@ $("textarea").on("focusout", function (event) {
 
 $("textarea").on("focusin", function (event) {
   console.log("put focus on note");
+  console.log($(event.target).data("noteFilled"));
+  if ($(event.target).data("noteFilled") == "false") {
+    // console.log("entered conditional");
+    var closeButton = $("<button>", {
+      type: "button",
+      class: "btn-close close-note-button",
+      "aria-label": "Close",
+    });
+    var noteListItem = $("<li>", {
+      class: "list-group-item d-flex",
+    });
+    var formattedTextArea = $("<textarea>", {
+      class: "w-100 user-note-area",
+      placeholder: "click to add notes",
+    });
+    $(event.target).parent().append(closeButton);
+    $(event.target).data("noteFilled", "true"); //This will need to be moved into a conditional within the "focusout" area
+    formattedTextArea.data("noteFilled", "false"); //This creates the new empty note element
+    noteListItem.append(formattedTextArea);
+    $(event.target).parent().parent().append(noteListItem);
+  }
   /* if(noteIsEmpty){
     set noteIsEmpty attribute to "false";
     Append new blank note element
