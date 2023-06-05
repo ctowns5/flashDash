@@ -3,6 +3,7 @@ var weatherDisplay = document.createElement("section");
 var tempDisplay = document.createElement("p");
 var weatherStatus = document.createElement("p");
 var lat;
+var codeRetrieve = JSON.parse(localStorage.getItem("codes"));
 var long;
 var dayCondition;
 //news API only works 100 times per day
@@ -102,7 +103,11 @@ function geoFetch(ci, st) {
     });
 }
 
-
+if (codeRetrieve == null) {
+  geoFetch("Denver", "Co")
+} else {
+  geoFetch(codeRetrieve.cityCode, codeRetrieve.stateCode);
+}
 
 // event listener for weather button
 $("#weatherButton").on("click", function () {
@@ -112,6 +117,8 @@ $("#weatherButton").on("click", function () {
 
   codes.cityCode = cityInput.value.trim();
   codes.stateCode = stateInput.value.trim();
+  localStorage.setItem("codes", JSON.stringify(codes));
+  codeRetrieve = JSON.parse(localStorage.getItem("codes"));
   geoFetch(codes.cityCode, codes.stateCode);
 
   // resets input to blank
