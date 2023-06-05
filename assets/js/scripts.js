@@ -10,11 +10,6 @@ var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6";
 weatherDisplay.setAttribute("style", "color: black");
 
 $("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
-$(".saveBtn").on("click", function () {
-  var text = $(this).siblings(".description").val();
-  var time = $(this).parent().attr("id");
-  localStorage.setItem(time, text);
-});
 
 $("#note1 .description").val(localStorage.getItem("note1"));
 $("#note2 .description").val(localStorage.getItem("note2"));
