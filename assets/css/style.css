@@ -1,5 +1,6 @@
 body {
-  background-image: linear-gradient(315deg, #b4a6ab 0%, #cdd5d1 100%);
+  background-image: linear-gradient(360deg, darkslategrey 0%, #033f63 100%);
+  color: #e3f2fd;
 }
 #date44 {
   color: rgb(206, 194, 178);
@@ -8,7 +9,6 @@ body {
 .note {
   background-color: #ffffff;
   color: #000000;
-  /* border-top: 1px dashed #000000; */
 }
 #newsdiv {
   margin-top: 45px;
@@ -26,18 +26,24 @@ body {
   border-radius: 5px;
   border-collapse: separate;
   margin-top: 45px;
+  border: solid whitesmoke 8px;
 }
 #dash-dog-photo:hover {
   cursor: pointer;
 }
 #newsdiv h1 {
   font-size: larger;
-  background-color: antiquewhite;
+  color: whitesmoke;
+  font-weight: bolder;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
 }
 #newsdiv {
-  border: solid black;
+  border: solid whitesmoke;
   border-radius: 8px;
   font-size: small;
+  padding: 20px;
 }
 textarea {
   /* background: transparent; */
@@ -51,9 +57,13 @@ textarea {
 .list-group {
   margin-top: 45px;
 }
-#note-list {
-  background-color: #2d3142;
+#weatherIcon {
+  width: 400px;
+  height: 400px;
+  margin-left: 255px;
 }
-.list-group {
-  background-color: #2d3142;
+a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: rgb(206, 194, 178);
 }
