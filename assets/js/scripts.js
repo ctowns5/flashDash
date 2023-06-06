@@ -7,7 +7,8 @@ var codeRetrieve = JSON.parse(localStorage.getItem("codes"));
 var long;
 var dayCondition;
 //news API only works 100 times per day
-var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6";
+// var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6"; //Chris's API key
+var newsAPI = "pub_2407040a4e8b5cdfccdf423b5ab30e7b1b5bb"; //Will's API key
 weatherDisplay.setAttribute("style", "color: black");
 
 $("#currentDay").text(dayjs().format("MMMM D[,] YYYY"));
