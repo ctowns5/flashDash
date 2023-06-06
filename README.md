@@ -26,7 +26,7 @@ The news app loads the top 5 news stories for the day, according to newsdata.io,
 
 ### Weather
 
-The weather app displays the current weather for whatever location that the user enters. Simply enter a new location and hit "go" to change the location of the displayed weather.
+The weather app displays the current weather for whatever location that the user enters. To change the location for the weather, click on the icon and enter the new desired location.
 
 ## Credits
 
