@@ -70,7 +70,7 @@ function weatherFetch(la, lo) {
 function geoFetch(ci, st) {
   var geoURL;
   var geoRequestURL =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     ci +
     "," +
     st +
