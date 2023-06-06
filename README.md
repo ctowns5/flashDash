@@ -6,7 +6,7 @@
 
 flashDash is a quick dashboard for a user to access everything they need to start their day at the click of a button. It includes a notes app, weather, top stories, and a cute picture of a dog to bring a smile to your face so you can enter the day with a positive attitude and prepared for anything. The purpose of this project was to build a tool that could be useful to anyone, while also honing and practicing newly learned programming skills. As a first introduction to collaborative programming, it was a strong education in the use and implementation of git.
 
-# SCEENSHOT GOES HERE
+![picture of the website](./assets/screenshots/localScreenshot.png)
 
 ## Usage
 
