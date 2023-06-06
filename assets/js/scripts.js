@@ -7,10 +7,11 @@ var codeRetrieve = JSON.parse(localStorage.getItem("codes"));
 var long;
 var dayCondition;
 //news API only works 100 times per day
-var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6";
+// var newsAPI = "pub_240369d694c5869e4939ab6db5cc197d1bae6"; //Chris's API key
+var newsAPI = "pub_2407040a4e8b5cdfccdf423b5ab30e7b1b5bb"; //Will's API key
 weatherDisplay.setAttribute("style", "color: black");
 
-$("#currentDay").text(dayjs().format("MMMM D YYYY, h:mm:ss a"));
+$("#currentDay").text(dayjs().format("MMMM D[,] YYYY"));
 
 function dogFetchAndDisplay() {
   //The dog photo will be loaded into the HTML element with ID "dash-dog-photo"
@@ -41,7 +42,6 @@ function weatherFetch(la, lo) {
     "&units=imperial&appid=68415bfdd25c70f3ac38b519e186d986";
   fetch(weatherRequestURL, weatherURL)
     .then(function (response) {
-      console.log(response);
       return response.json();
     })
     .then(function (weatherURL) {
@@ -53,7 +53,7 @@ function weatherFetch(la, lo) {
       dayCondition = weatherURL.weather[0].icon;
       $("#dayCondition").attr(
         "src",
-        "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png"
+        "https://openweathermap.org/img/wn/" + dayCondition + "@4x.png"
       );
       tempDisplay.textContent = "Temperature: " + temperature + " degrees";
       weatherStatus.textContent = "Status: " + weatherURL.weather[0].main;
@@ -63,23 +63,21 @@ function weatherFetch(la, lo) {
       weatherPlace.innerHTML = city;
       $("#weatherIcon").attr(
         "src",
-        "https://openweathermap.org/img/wn/" + dayCondition + "@2x.png"
+        "https://openweathermap.org/img/wn/" + dayCondition + "@4x.png"
       );
-      console.log(weatherURL);
     });
 }
 
 function geoFetch(ci, st) {
   var geoURL;
   var geoRequestURL =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     ci +
     "," +
     st +
     ",US&limit=1&appid=68415bfdd25c70f3ac38b519e186d986";
   fetch(geoRequestURL, geoURL)
     .then(function (response) {
-      // console.log(response);
       return response.json();
     })
     .then(function (geoURL) {
@@ -92,7 +90,7 @@ function geoFetch(ci, st) {
 }
 
 if (codeRetrieve == null) {
-  geoFetch("Denver", "Co")
+  geoFetch("Denver", "Co");
 } else {
   geoFetch(codeRetrieve.cityCode, codeRetrieve.stateCode);
 }
@@ -120,10 +118,7 @@ function getAndSaveNotes() {
   //array will be filled with text contents of each extant note box
   var notesArray = [];
   //The "i" in the function below is simply the index of the loop created in the "each" function
-  // console.log($(".user-note-area"));
   $(".user-note-area").each(function (i) {
-    // console.log("looping");
-    // console.log(this);
     notesArray[i] = $(this).val();
   });
   localStorage.setItem("savedNotes", JSON.stringify(notesArray));
@@ -174,7 +169,6 @@ function initializeNotes() {
       } else {
         formattedTextArea.data("noteFilled", "false");
       }
-      console.log(noteListItem);
       $("#note-list").append(noteListItem);
     }
   }
