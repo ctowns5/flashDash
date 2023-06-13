@@ -35,7 +35,7 @@ The weather app displays the current weather for whatever location that the user
 Chris Townsend: https://github.com/ctowns5
 Evan Mccullough: https://github.com/eqmccullough
 Ian Smith: https://github.com/Ian-Smith1
-Will Brown: https://github.com/willis291
+Will Brown: https://github.com/TrueWillB
 
 ### APIs
 
